@@ -1,10 +1,12 @@
 services:
   db:
     image: postgres:15
+    env_file:
+      - .env
     environment:
-      POSTGRES_DB: wodanalytics
-      POSTGRES_USER: woduser
-      POSTGRES_PASSWORD: wodpass
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
@@ -13,17 +15,12 @@ services:
   api:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
     volumes:
       - .:/app
     ports:
       - "8000:8000"
-    environment:
-      - DEBUG=1
-      - DB_NAME=wodanalytics
-      - DB_USER=woduser
-      - DB_PASSWORD=wodpass
-      - DB_HOST=db
-      - DB_PORT=5432
     depends_on:
       - db
 
