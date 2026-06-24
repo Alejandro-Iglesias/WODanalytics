@@ -1,0 +1,8 @@
+WOD/
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.joblib
+db.sqlite3
+.DS_Store
