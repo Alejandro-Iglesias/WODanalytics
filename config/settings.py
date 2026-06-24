@@ -127,3 +127,14 @@ STATIC_URL = "static/"
 
 # usa el modelo de usuario personalizado
 AUTH_USER_MODEL = "users.User"
+
+# Configuración de Django REST Framework
+REST_FRAMEWORK = {
+    # Autenticación mediante JWT en todas las vistas por defecto
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    # Por defecto solo usuarios autenticados pueden acceder
+    # (se sobreescribe por vista con permission_classes)
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+}

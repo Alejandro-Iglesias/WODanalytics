@@ -22,6 +22,21 @@ class User(AbstractUser):
     USERNAME_FIELD = "email"  # Login con email en vez de username
     REQUIRED_FIELDS = ["username"]
 
+    # --- Resolución de conflictos con auth.User de Django ---
+    # AbstractUser ya define groups y user_permissions pero colisionan
+    # con los reverse accessors del modelo auth.User por defecto.
+    # Redefinimos con related_name únicos para evitar el error E304.
+    groups = models.ManyToManyField(
+        "auth.Group",
+        related_name="custom_user_groups",
+        blank=True,
+    )
+    user_permissions = models.ManyToManyField(
+        "auth.Permission",
+        related_name="custom_user_permissions",
+        blank=True,
+    )
+
     class Meta:
         db_table = "users"
 
