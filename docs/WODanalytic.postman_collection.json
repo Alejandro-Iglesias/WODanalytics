@@ -8,13 +8,13 @@
 	},
 	"item": [
 		{
-			"name": "Register User",
+			"name": "Register User 1",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"Carmen123\",\r\n    \"email\": \"carmen@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
+					"raw": "{\r\n    \"username\": \"test1\",\r\n    \"email\": \"test1@gmail.com\",\r\n    \"password\": \"test1234!\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,135 @@
 			"response": []
 		},
 		{
-			"name": "Login Get-Token",
+			"name": "Register User 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test2\",\r\n    \"email\": \"test2@gmail.com\",\r\n    \"password\": \"Test1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test3\",\r\n    \"email\": \"TEST3@GMAIL.COM\",\r\n    \"password\": \"Test1234!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test4\",\r\n    \"email\": \"alejandro@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register User 5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"atleta1\",\r\n    \"email\": \"atleta1@gmail.com\",\r\n    \"password\": \"Test1234!\",\r\n    \"fecha_nacimiento\": \"1999-07-19\",\r\n    \"peso_kg\": 75.5,\r\n    \"altura_cm\": 180.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Get-Token 1",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -72,14 +200,79 @@
 			"response": []
 		},
 		{
-			"name": "Get profile",
+			"name": "Login Get-Token 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"alejandro@gmail.com\",\r\n    \"password\": \"alejandro\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profile 1",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzkwMjA5LCJpYXQiOjE3ODIzODk5MDksImp0aSI6IjgxMjU4ZDEzNDJkODQ5MDZhYTFkYTk3NDg3NmJiMDQ1IiwidXNlcl9pZCI6IjMifQ.jhAe8-gE5idvPVNpHWQJcavyigbFPq9QklnxizV6Lqs",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzk5NzU1LCJpYXQiOjE3ODIzOTk0NTUsImp0aSI6IjFjMDhmNmMyMGExOTRmZTZiOGRlNGJmM2M3ZWJmZTM0IiwidXNlcl9pZCI6IjMifQ.dts7jshgfAn17RDWgMfM9r1dTy3GPWRi9m2_vfKt5mU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/profile/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profile 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzkwMjA5LCJpYXQiOjE3ODIzODk5MDksImp0aSI6IjgxMjU4ZDEzNDJkODQ5MDZhYTFkYTk3NDg3NmJiMDQ1IiwidXNlcl9pZCI6IjMifQ.jhAe8-gE5idvPVNpHWQgbFPq9QklnxizV6Lqs",
 							"type": "string"
 						}
 					]
