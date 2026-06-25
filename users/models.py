@@ -37,6 +37,11 @@ class User(AbstractUser):
         blank=True,
     )
 
+    def save(self, *args, **kwargs):
+        # Garantizamos que el email siempre se guarda en minúsculas
+        self.email = self.email.lower()
+        super().save(*args, **kwargs)
+
     class Meta:
         db_table = "users"
 
