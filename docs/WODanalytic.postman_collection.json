@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "745c9a89-d9e9-40ad-8ab6-3851f81240e3",
+		"name": "WODanalytic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49163143",
+		"_collection_link": "https://alejandroiestevez-9128342.postman.co/workspace/Alejandro-Iglesias-Est%25C3%25A9vez's-Wo~b188475e-2f7c-40e4-8fe8-f19eb20032ad/collection/49163143-745c9a89-d9e9-40ad-8ab6-3851f81240e3?action=share&source=collection_link&creator=49163143"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Carmen123\",\r\n    \"email\": \"carmen@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Get-Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"carmen@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzkwMjA5LCJpYXQiOjE3ODIzODk5MDksImp0aSI6IjgxMjU4ZDEzNDJkODQ5MDZhYTFkYTk3NDg3NmJiMDQ1IiwidXNlcl9pZCI6IjMifQ.jhAe8-gE5idvPVNpHWQJcavyigbFPq9QklnxizV6Lqs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/auth/profile/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
