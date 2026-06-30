@@ -1,301 +1,627 @@
 {
-	"info": {
-		"_postman_id": "745c9a89-d9e9-40ad-8ab6-3851f81240e3",
-		"name": "WODanalytic",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "49163143",
-		"_collection_link": "https://alejandroiestevez-9128342.postman.co/workspace/Alejandro-Iglesias-Est%25C3%25A9vez's-Wo~b188475e-2f7c-40e4-8fe8-f19eb20032ad/collection/49163143-745c9a89-d9e9-40ad-8ab6-3851f81240e3?action=share&source=collection_link&creator=49163143"
-	},
-	"item": [
-		{
-			"name": "Register User 1",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"test1\",\r\n    \"email\": \"test1@gmail.com\",\r\n    \"password\": \"test1234!\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/register/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"register",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Register User 2",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"test2\",\r\n    \"email\": \"test2@gmail.com\",\r\n    \"password\": \"Test1234\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/register/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"register",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Register User 3",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"test3\",\r\n    \"email\": \"TEST3@GMAIL.COM\",\r\n    \"password\": \"Test1234!\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/register/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"register",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Register User 4",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"test4\",\r\n    \"email\": \"alejandro@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/register/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"register",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Register User 5",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"atleta1\",\r\n    \"email\": \"atleta1@gmail.com\",\r\n    \"password\": \"Test1234!\",\r\n    \"fecha_nacimiento\": \"1999-07-19\",\r\n    \"peso_kg\": 75.5,\r\n    \"altura_cm\": 180.0\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/register/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"register",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login Get-Token 1",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"carmen@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/token/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"token",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login Get-Token 2",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"alejandro@gmail.com\",\r\n    \"password\": \"alejandro\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/token/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"token",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get profile 1",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzk5NzU1LCJpYXQiOjE3ODIzOTk0NTUsImp0aSI6IjFjMDhmNmMyMGExOTRmZTZiOGRlNGJmM2M3ZWJmZTM0IiwidXNlcl9pZCI6IjMifQ.dts7jshgfAn17RDWgMfM9r1dTy3GPWRi9m2_vfKt5mU",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/profile/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"profile",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get profile 2",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzkwMjA5LCJpYXQiOjE3ODIzODk5MDksImp0aSI6IjgxMjU4ZDEzNDJkODQ5MDZhYTFkYTk3NDg3NmJiMDQ1IiwidXNlcl9pZCI6IjMifQ.jhAe8-gE5idvPVNpHWQgbFPq9QklnxizV6Lqs",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8000/api/v1/auth/profile/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"auth",
-						"profile",
-						""
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "745c9a89-d9e9-40ad-8ab6-3851f81240e3",
+    "name": "WODanalytic",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49163143",
+    "_collection_link": "https://go.postman.co/collection/49163143-745c9a89-d9e9-40ad-8ab6-3851f81240e3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Register User 1",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"test1\",\r\n    \"email\": \"test1@gmail.com\",\r\n    \"password\": \"test1234!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/register/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User 2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"test2\",\r\n    \"email\": \"test2@gmail.com\",\r\n    \"password\": \"Test1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/register/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User 3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"test3\",\r\n    \"email\": \"TEST3@GMAIL.COM\",\r\n    \"password\": \"Test1234!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/register/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User 4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"test4\",\r\n    \"email\": \"alejandro@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/register/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User 5",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"atleta1\",\r\n    \"email\": \"atleta1@gmail.com\",\r\n    \"password\": \"Test1234!\",\r\n    \"fecha_nacimiento\": \"1999-07-19\",\r\n    \"peso_kg\": 75.5,\r\n    \"altura_cm\": 180.0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/register/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Get-Token 1",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyNzYxNDIyLCJpYXQiOjE3ODI3NjExMjIsImp0aSI6IjY2ZTZhYjkyZDk1ZjQ1MWJhYzg3YThiNDU1ZmY0NWI0IiwidXNlcl9pZCI6IjMifQ.sJjbtYmTgVedd9mMRAsnkdry33lYArjpr3bUre20gsA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"carmen@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/token/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "token",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Get-Token 2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"alejandro@gmail.com\",\r\n    \"password\": \"alejandro\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/token/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "token",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get profile 1",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzk5NzU1LCJpYXQiOjE3ODIzOTk0NTUsImp0aSI6IjFjMDhmNmMyMGExOTRmZTZiOGRlNGJmM2M3ZWJmZTM0IiwidXNlcl9pZCI6IjMifQ.dts7jshgfAn17RDWgMfM9r1dTy3GPWRi9m2_vfKt5mU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/profile/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "profile",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get profile 2",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyMzkwMjA5LCJpYXQiOjE3ODIzODk5MDksImp0aSI6IjgxMjU4ZDEzNDJkODQ5MDZhYTFkYTk3NDg3NmJiMDQ1IiwidXNlcl9pZCI6IjMifQ.jhAe8-gE5idvPVNpHWQgbFPq9QklnxizV6Lqs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/profile/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "profile",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "WODs",
+      "item": [
+        {
+          "name": "Register WOD 1",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyNzYxMDYxLCJpYXQiOjE3ODI3NjA3NjEsImp0aSI6IjI5NzM3ZDA5ODIwNDQzMWE4NjQxMjQ5YjNmNDMzZDZjIiwidXNlcl9pZCI6IjMifQ.Zu0Gnsg6XJpyI6twZT2yPZA3UgVKqwHMmAoOKj2avTw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre_ejercicio\": \"Murphy\",\r\n    \"tipo\": \"for_time\",\r\n    \"resultado_tiempo\": 12.5,\r\n    \"notas\": \"Primer WOD registrado\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register WOD 2",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyODUzOTg1LCJpYXQiOjE3ODI4NTM2ODUsImp0aSI6IjU0MTZhMjY4Njc4YTQxYjJhMTkwNzFkNjNhNjhmNTFlIiwidXNlcl9pZCI6IjMifQ.c6Dei1ybGzh5Y9hOIPtf9n6STf1xeQTYPFgXqUN4YfA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre_ejercicio\": \"Gimnasticos\",\r\n    \"tipo\": \"for_time\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register WOD 3",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyODUzOTg1LCJpYXQiOjE3ODI4NTM2ODUsImp0aSI6IjU0MTZhMjY4Njc4YTQxYjJhMTkwNzFkNjNhNjhmNTFlIiwidXNlcl9pZCI6IjMifQ.c6Dei1ybGzh5Y9hOIPtf9n6STf1xeQTYPFgXqUN4YfA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nombre_ejercicio\": \"Sincros\", \"tipo\": \"amrap\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List WODs 1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyNzYxMDYxLCJpYXQiOjE3ODI3NjA3NjEsImp0aSI6IjI5NzM3ZDA5ODIwNDQzMWE4NjQxMjQ5YjNmNDMzZDZjIiwidXNlcl9pZCI6IjMifQ.Zu0Gnsg6XJpyI6twZT2yPZA3UgVKqwHMmAoOKj2avTw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List WODs 2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Metrica 1",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyNzYxNDIyLCJpYXQiOjE3ODI3NjExMjIsImp0aSI6IjY2ZTZhYjkyZDk1ZjQ1MWJhYzg3YThiNDU1ZmY0NWI0IiwidXNlcl9pZCI6IjMifQ.sJjbtYmTgVedd9mMRAsnkdry33lYArjpr3bUre20gsA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"horas_sueno\": 7.5,\r\n    \"fatiga_muscular\": 6,\r\n    \"nivel_estres\": 4\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/metricas/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                "metricas",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register Metrica 2",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyODU0MjgyLCJpYXQiOjE3ODI4NTM5ODIsImp0aSI6ImRlMDlhOWE3Mzk5OTQwNjhiNzEyMmVjYWNiOTE4ZDIxIiwidXNlcl9pZCI6IjMifQ.oQqE6KOF4JL2g7G4zWOYmm1rVyPf3Yv6cMClMJq4u3M",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"fatiga_muscular\": 11}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/metricas/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                "metricas",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Metricas",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyNzYxNTE1LCJpYXQiOjE3ODI3NjEyMTUsImp0aSI6IjlmMDdjMTA4ZWQ3NTRjZGFhODU5YWI4MWUwM2Y0MmI3IiwidXNlcl9pZCI6IjMifQ.7GriD0JIDMO9bEgMuuzWy_JscNoRt2UlPSjgFcc-fD8",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8000/api/v1/wods/metricas/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "wods",
+                "metricas",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }

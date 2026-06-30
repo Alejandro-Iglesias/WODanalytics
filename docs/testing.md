@@ -26,3 +26,32 @@
 
 | 1 | Con token válido | `Authorization: Bearer <token>` | 200 - datos del perfil |
 | 2 | Sin token | Sin header | 401 - no autenticado |
+
+
+### POST /api/v1/wods/
+
+| Caso | Descripción | Body | Resultado esperado |
+|------|-------------|------|--------------------|
+| 1 | Registrar WOD for_time | `{"nombre_ejercicio": "Murphy", "tipo": "for_time", "resultado_tiempo": 12.5}` | 201 - WOD creado |
+| 2 | WOD for_time sin tiempo | `{"nombre_ejercicio": "Gimnasticos", "tipo": "for_time"}` | 400 - resultado_tiempo requerido |
+| 3 | WOD AMRAP sin repeticiones | `{"nombre_ejercicio": "Sincros", "tipo": "amrap"}` | 400 - resultado_repeticiones requerido |
+
+### GET /api/v1/wods/
+
+| Caso | Descripción | Header | Resultado esperado |
+|------|-------------|--------|--------------------|
+| 1 | Listar WODs con token | Bearer Token válido | 200 - lista de WODs del atleta |
+| 2 | Sin token | Sin header | 401 - no autenticado |
+
+### POST /api/v1/wods/metricas/
+
+| Caso | Descripción | Body | Resultado esperado |
+|------|-------------|------|--------------------|
+| 1 | Registrar métrica válida | `{"horas_sueno": 7.5, "fatiga_muscular": 6, "nivel_estres": 4}` | 201 - métrica creada |
+| 2 | Fatiga fuera de rango | `{"fatiga_muscular": 11}` | 400 - debe estar entre 1 y 10 |
+
+### GET /api/v1/wods/metricas/
+
+| Caso | Descripción | Header | Resultado esperado |
+|------|-------------|--------|--------------------|
+| 1 | Listar métricas con token | Bearer Token válido | 200 - lista de métricas del atleta |
