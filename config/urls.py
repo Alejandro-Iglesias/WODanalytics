@@ -26,4 +26,6 @@ urlpatterns = [
     path(
         "api/v1/auth/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"
     ),
+    # --- Endpoints de WODs ---
+    path("api/v1/wods/", include("wods.urls")),
 ]
