@@ -10,6 +10,8 @@ API REST para la gestión de entrenamientos de CrossFit y entrenamiento híbrido
 - **IA/ML:** Scikit-Learn, Pandas, NumPy, Joblib
 - **DevOps:** Docker, Docker Compose
 - **Testing:** Pytest, pytest-django
+- **Control de versiones:** Git, GitHub
+
 
 ## 🚀 Instalación y Ejecución
 
@@ -103,6 +105,8 @@ wodanalytics/
 
 - Colección Postman: `docs/WODAnalytics.postman_collection.json`
 - Casos de prueba: `docs/testing.md`
+- Para importar la colección abre Postman → Import → selecciona el archivo JSON
+
 
 ## 👨‍💻 Autor
 
