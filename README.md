@@ -84,6 +84,8 @@ docker-compose exec api python manage.py migrate
 
 ## 📁 Estructura del Proyecto
 
+
+\```
 wodanalytics/
 ├── config/          # Configuración Django
 ├── users/           # App de autenticación y usuarios
@@ -95,6 +97,7 @@ wodanalytics/
 ├── Dockerfile
 ├── docker-compose.yml
 └── requirements.txt
+\```
 
 ## 📚 Documentación
 
@@ -104,4 +107,4 @@ wodanalytics/
 ## 👨‍💻 Autor
 
 **Alejandro Iglesias Estévez** — Python Backend Developer
-[LinkedIn](https://www.linkedin.com/in/alejandroiglesias-estévez-a9a157239) · [GitHub](https://github.com/Alejandro-Iglesias)
+[LinkedIn](www.linkedin.com/in/alejandro-iglesias-estévez-a9a157239) · [GitHub](https://github.com/Alejandro-Iglesias)
