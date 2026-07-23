@@ -10,6 +10,7 @@ API REST para la gestión de entrenamientos de CrossFit y entrenamiento híbrido
 - **IA/ML:** Scikit-Learn, Pandas, NumPy, Joblib
 - **DevOps:** Docker, Docker Compose
 - **Testing:** Pytest, pytest-django
+- **Frontend:** React, Tailwind CSS
 
 ## 🚀 Instalación y Ejecución
 
@@ -26,6 +27,7 @@ cd WODanalytics
 
 2. Crea el archivo `.env` en la raíz con estas variables:
 
+```
 SECRET_KEY=tu_secret_key
 DEBUG=1
 DB_NAME=wodanalytics
@@ -33,6 +35,7 @@ DB_USER=woduser
 DB_PASSWORD=wodpass
 DB_HOST=db
 DB_PORT=5432
+```
 
 3. Levanta los contenedores:
 ```bash
@@ -64,7 +67,7 @@ docker-compose exec api python manage.py migrate
 | GET | `/api/v1/wods/metricas/` | Métricas de recuperación | Sí |
 | POST | `/api/v1/wods/metricas/` | Registrar métricas de recuperación | Sí |
 
-### Predicciones (próximamente)
+### Predicciones 
 | Método | Endpoint | Descripción | Token |
 |--------|----------|-------------|-------|
 | POST | `/api/v1/predict/` | Predicción de rendimiento con ML | Sí |
@@ -91,7 +94,7 @@ wodanalytics/
 ├── predictions/     # App de ML (en desarrollo)
 ├── docs/            # Documentación y colección Postman
 ├── ml_model/        # Modelos y scripts de ML
-├── frontend/        # Dashboard HTML/Tailwind/JS
+├── frontend/        # Dashboard React + Tailwind CSS
 ├── Dockerfile
 ├── docker-compose.yml
 └── requirements.txt
