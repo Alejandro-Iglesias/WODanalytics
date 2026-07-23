@@ -622,6 +622,250 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Predictions",
+      "item": [
+        {
+          "name": "Predict Performance",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg0ODA5Mjc1LCJpYXQiOjE3ODQ4MDg5NzUsImp0aSI6ImY4ZTk1MDU5MGVkZDQ0M2NhNTllYWJlMjBjYmQ3MzgwIiwidXNlcl9pZCI6IjMifQ.k10dRW5q4WUySbgmRVsfYgCE68M0mFjHlDbNcljo_1M",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fatiga_muscular\": 6,\r\n    \"nivel_estres\": 4,\r\n    \"horas_sueno\": 7.5,\r\n    \"tipo_wod\": \"for_time\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/predict/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "predict",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "predict range",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg0ODEwNTQ3LCJpYXQiOjE3ODQ4MTAyNDcsImp0aSI6IjlhZjk5ZTNiMWFlZDQ1MmQ5YjNmN2VlMzM0ZTAzMzIzIiwidXNlcl9pZCI6IjMifQ.iORnru6BGthC7hZDV0i8WNBkwmkr0zns2BTGFnT8OT0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fatiga_muscular\": 11,\r\n    \"nivel_estres\": 4,\r\n    \"horas_sueno\": 7.5,\r\n    \"tipo_wod\": \"for_time\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/predict/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "predict",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "predict token",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"fatiga_muscular\": 7,\r\n    \"nivel_estres\": 6,\r\n    \"horas_sueno\": 8,\r\n    \"tipo_wod\": \"for_time\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/predict/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "predict",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login superuser",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"admin@wodanalytics.com\",\r\n    \"password\": \"Admin123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/auth/token/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "token",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrain Model (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg0ODEwMTEwLCJpYXQiOjE3ODQ4MDk4MTAsImp0aSI6IjRjZTUyOWQwOGE1NDQzODE4ZDU3MGUwNjNiNTA2YzM0IiwidXNlcl9pZCI6IjcifQ.bN3xIEPkcKXUpZ5oSC4_tRRIIneKk2rFWonNDVlMbas",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/predict/retrain/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "predict",
+                "retrain",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrain  (normal user)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg0ODEwOTc3LCJpYXQiOjE3ODQ4MTA2NzcsImp0aSI6ImVlMjZlMTg5NGFmODRmNzRiYjRkNDBjOGYxMGZmNjRjIiwidXNlcl9pZCI6IjMifQ.C8stm_QRSVhmIcp3fSGTxw5pW7qNKMyKIBEItfG5GGk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"carmen@gmail.com\",\r\n    \"password\": \"Test1234!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/api/v1/predict/retrain/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "v1",
+                "predict",
+                "retrain",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }

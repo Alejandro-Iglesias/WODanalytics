@@ -28,4 +28,6 @@ urlpatterns = [
     ),
     # --- Endpoints de WODs ---
     path("api/v1/wods/", include("wods.urls")),
+    # --- Endpoint de predicciones ---
+    path("api/v1/predict/", include("predictions.urls")),
 ]
