@@ -55,3 +55,20 @@
 | Caso | Descripción | Header | Resultado esperado |
 |------|-------------|--------|--------------------|
 | 1 | Listar métricas con token | Bearer Token válido | 200 - lista de métricas del atleta |
+
+
+
+### POST /api/v1/predict/
+
+| Caso | Descripción | Body | Resultado esperado |
+|------|-------------|------|--------------------|
+| 1 | Predicción válida | `{"fatiga_muscular": 6, "nivel_estres": 4, "horas_sueno": 7.5, "tipo_wod": "for_time"}` | 200 - tiempo estimado en minutos |
+| 2 | Fatiga fuera de rango | `{"fatiga_muscular": 11, ...}` | 400 - debe estar entre 1 y 10 |
+| 3 | Sin token | Sin header | 401 - no autenticado |
+
+### POST /api/v1/predict/retrain/
+
+| Caso | Descripción | Header | Resultado esperado |
+|------|-------------|--------|--------------------|
+| 1 | Admin reentrena modelo | Bearer Token admin | 200 - modelo reentrenado + R² |
+| 2 | Usuario normal intenta reentrenar | Bearer Token usuario | 403 - solo administradores |
