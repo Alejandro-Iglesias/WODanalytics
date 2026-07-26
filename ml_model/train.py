@@ -52,23 +52,17 @@ def cargar_datos():
 
 
 def preparar_features(df_wods, df_metricas):
-    """
-    Combina los DataFrames y prepara las features para el modelo.
-    Convierte el tipo de WOD a número mediante encoding.
-    """
-    # Combinamos los dos DataFrames por índice
     df = pd.concat(
         [df_wods.reset_index(drop=True), df_metricas.reset_index(drop=True)], axis=1
     )
 
-    # Encoding del tipo de WOD — convertimos texto a número
     tipo_map = {"for_time": 0, "amrap": 1, "emom": 2, "tabata": 3}
     df["tipo_num"] = df["tipo"].map(tipo_map)
 
-    # Eliminamos filas con valores nulos
-    df = df.dropna()
+    # Rellenamos nulos con valores por defecto
+    df["usuario__peso_kg"] = df["usuario__peso_kg"].fillna(75.0)
+    df["usuario__altura_cm"] = df["usuario__altura_cm"].fillna(175.0)
 
-    # Features que usará el modelo
     features = [
         "fatiga_muscular",
         "nivel_estres",
@@ -77,6 +71,17 @@ def preparar_features(df_wods, df_metricas):
         "usuario__peso_kg",
         "usuario__altura_cm",
     ]
+
+    # Solo eliminamos filas con nulos en las features críticas
+    df = df.dropna(
+        subset=[
+            "fatiga_muscular",
+            "nivel_estres",
+            "horas_sueno",
+            "tipo_num",
+            "resultado_tiempo",
+        ]
+    )
 
     X = df[features]
     y = df["resultado_tiempo"]
