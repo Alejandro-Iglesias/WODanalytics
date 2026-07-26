@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 function WodList({ wods }) {
+  const navigate = useNavigate()
+
   if (wods.length === 0) {
     return (
       <div className="bg-gray-800 rounded-xl p-6 border border-gray-700 text-center">
@@ -25,7 +29,11 @@ function WodList({ wods }) {
           </thead>
           <tbody>
             {wods.map((wod) => (
-              <tr key={wod.id} className="border-b border-gray-700 hover:bg-gray-700 transition-colors">
+              <tr
+                key={wod.id}
+                onClick={() => navigate(`/wods/${wod.id}`)}
+                className="border-b border-gray-700 hover:bg-gray-700 transition-colors cursor-pointer"
+              >
                 <td className="px-4 py-3 text-white font-medium">{wod.nombre_ejercicio}</td>
                 <td className="px-4 py-3">
                   <span className="bg-emerald-900 text-emerald-300 text-xs px-2 py-1 rounded-full">

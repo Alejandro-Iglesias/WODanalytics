@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function LoginForm({ onLogin }) {
+function LoginForm({ onLogin, onShowRegister }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(null)
@@ -84,7 +84,16 @@ function LoginForm({ onLogin }) {
           >
             {loading ? 'Iniciando sesión...' : 'Iniciar sesión'}
           </button>
-        </form>
+       
+
+        <button
+        type="button"
+        onClick={onShowRegister}
+        className="w-full text-gray-400 hover:text-white text-sm py-2 transition-colors"
+        >
+        No tienes cuenta. Registrate
+        </button>
+ </form>
       </div>
     </div>
   )
