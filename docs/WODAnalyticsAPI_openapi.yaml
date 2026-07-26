@@ -1,0 +1,637 @@
+openapi: 3.0.3
+info:
+  title: WODAnalytics AI API
+  version: 1.0.0
+  description: API REST para gestión de entrenamientos CrossFit con predicción ML
+paths:
+  /api/schema/:
+    get:
+      operationId: schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - ht
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - schema
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/v1/auth/profile/:
+    get:
+      operationId: v1_auth_profile_retrieve
+      description: |-
+        Endpoint protegido que devuelve el perfil del atleta autenticado.
+        Requiere token JWT válido en el header de la petición.
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/auth/register/:
+    post:
+      operationId: v1_auth_register_create
+      description: |-
+        Endpoint público para el registro de nuevos atletas.
+        No requiere autenticación — cualquiera puede registrarse.
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api/v1/auth/token/:
+    post:
+      operationId: v1_auth_token_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /api/v1/auth/token/refresh/:
+    post:
+      operationId: v1_auth_token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /api/v1/predict/:
+    post:
+      operationId: v1_predict_create
+      description: |-
+        Endpoint de predicción de rendimiento.
+        El atleta manda sus parámetros del día y recibe
+        una estimación de su tiempo en el WOD.
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/predict/retrain/:
+    post:
+      operationId: v1_predict_retrain_create
+      description: |-
+        Endpoint interno de reentrenamiento autónomo.
+        Solo accesible por administradores — recoge los datos reales
+        de PostgreSQL y reentrena el modelo en caliente.
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          description: No response body
+  /api/v1/wods/:
+    get:
+      operationId: v1_wods_list
+      description: |-
+        GET  → devuelve el historial de WODs del atleta autenticado.
+        POST → registra un nuevo WOD para el atleta autenticado.
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Wod'
+          description: ''
+    post:
+      operationId: v1_wods_create
+      description: |-
+        GET  → devuelve el historial de WODs del atleta autenticado.
+        POST → registra un nuevo WOD para el atleta autenticado.
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Wod'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Wod'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Wod'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wod'
+          description: ''
+  /api/v1/wods/{id}/:
+    get:
+      operationId: v1_wods_retrieve
+      description: |-
+        GET    → detalle de un WOD específico
+        PUT    → editar un WOD
+        DELETE → eliminar un WOD
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wod'
+          description: ''
+    put:
+      operationId: v1_wods_update
+      description: |-
+        GET    → detalle de un WOD específico
+        PUT    → editar un WOD
+        DELETE → eliminar un WOD
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Wod'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Wod'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Wod'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wod'
+          description: ''
+    patch:
+      operationId: v1_wods_partial_update
+      description: |-
+        GET    → detalle de un WOD específico
+        PUT    → editar un WOD
+        DELETE → eliminar un WOD
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWod'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedWod'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedWod'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wod'
+          description: ''
+    delete:
+      operationId: v1_wods_destroy
+      description: |-
+        GET    → detalle de un WOD específico
+        PUT    → editar un WOD
+        DELETE → eliminar un WOD
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/v1/wods/metricas/:
+    get:
+      operationId: v1_wods_metricas_list
+      description: |-
+        GET  → devuelve las métricas de recuperación del atleta autenticado.
+        POST → registra una nueva métrica de recuperación.
+      tags:
+      - v1
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MetricaRecuperacion'
+          description: ''
+    post:
+      operationId: v1_wods_metricas_create
+      description: |-
+        GET  → devuelve las métricas de recuperación del atleta autenticado.
+        POST → registra una nueva métrica de recuperación.
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricaRecuperacion'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MetricaRecuperacion'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MetricaRecuperacion'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricaRecuperacion'
+          description: ''
+components:
+  schemas:
+    MetricaRecuperacion:
+      type: object
+      description: Serializer para el registro y consulta de métricas de recuperación
+        diarias.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        fecha:
+          type: string
+          format: date
+          readOnly: true
+        horas_sueno:
+          type: number
+          format: double
+          description: Horas de sueño de la noche anterior
+        fatiga_muscular:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: Nivel de fatiga muscular del 1 al 10
+        nivel_estres:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: Nivel de estrés del 1 al 10
+        fecha_creacion:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - fatiga_muscular
+      - fecha
+      - fecha_creacion
+      - horas_sueno
+      - id
+      - nivel_estres
+    PatchedWod:
+      type: object
+      description: |-
+        Serializer para el registro y consulta de entrenamientos.
+        El usuario se asigna automáticamente desde la vista — no se expone en la API.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre_ejercicio:
+          type: string
+          maxLength: 50
+        tipo:
+          $ref: '#/components/schemas/TipoEnum'
+        resultado_tiempo:
+          type: number
+          format: double
+          nullable: true
+        resultado_repeticiones:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        peso:
+          type: number
+          format: double
+          nullable: true
+        notas:
+          type: string
+          nullable: true
+        fecha_entrenamiento:
+          type: string
+          format: date
+          readOnly: true
+        fecha_creacion:
+          type: string
+          format: date-time
+          readOnly: true
+    TipoEnum:
+      enum:
+      - for_time
+      - amrap
+      - emom
+      - tabata
+      type: string
+      description: |-
+        * `for_time` - For Time (Por Tiempo)
+        * `amrap` - AMRAP (As Many Rounds As Possible)
+        * `emom` - EMOM (Every Minute On the Minute)
+        * `tabata` - Tabata / Intervalos
+    TokenObtainPair:
+      type: object
+      properties:
+        email:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+      - access
+      - email
+      - password
+      - refresh
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+    Wod:
+      type: object
+      description: |-
+        Serializer para el registro y consulta de entrenamientos.
+        El usuario se asigna automáticamente desde la vista — no se expone en la API.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        nombre_ejercicio:
+          type: string
+          maxLength: 50
+        tipo:
+          $ref: '#/components/schemas/TipoEnum'
+        resultado_tiempo:
+          type: number
+          format: double
+          nullable: true
+        resultado_repeticiones:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        peso:
+          type: number
+          format: double
+          nullable: true
+        notas:
+          type: string
+          nullable: true
+        fecha_entrenamiento:
+          type: string
+          format: date
+          readOnly: true
+        fecha_creacion:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - fecha_creacion
+      - fecha_entrenamiento
+      - id
+      - nombre_ejercicio
+      - tipo
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
