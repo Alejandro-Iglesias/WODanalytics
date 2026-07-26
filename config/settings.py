@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "wods",
     "predictions.apps.PredictionsConfig",
     "corsheaders",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,7 @@ REST_FRAMEWORK = {
     # Por defecto solo usuarios autenticados pueden acceder
     # (se sobreescribe por vista con permission_classes)
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 
@@ -148,3 +150,11 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
+
+
+# --- Swagger / drf-spectacular ---
+SPECTACULAR_SETTINGS = {
+    "TITLE": "WODAnalytics AI API",
+    "DESCRIPTION": "API REST para gestión de entrenamientos CrossFit con predicción ML",
+    "VERSION": "1.0.0",
+}
