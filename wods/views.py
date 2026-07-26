@@ -42,6 +42,21 @@ class WodListCreateView(generics.ListCreateAPIView):
         )
 
 
+class WodDetailView(generics.RetrieveUpdateDestroyAPIView):
+    """
+    GET    → detalle de un WOD específico
+    PUT    → editar un WOD
+    DELETE → eliminar un WOD
+    """
+
+    serializer_class = WodSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # Aislamiento de datos — solo puede acceder a sus propios WODs
+        return Wod.objects.filter(usuario=self.request.user)
+
+
 class MetricaRecuperacionListCreateView(generics.ListCreateAPIView):
     """
     GET  → devuelve las métricas de recuperación del atleta autenticado.
